@@ -16,8 +16,10 @@ public class TicTacToe
       * @param keyboard     Scanner class object to parse user input
       * @param playerOne    boolean specifying player's turn (player 1 is true, player2 is false) 
       * @param board        tic-tac-toe board representing game
+      *
+      * @return Returns coordinates for spot on board user wishes to play
      */ 
-    public static int[] getUserInput(Scanner keyboard, boolean playerOne, int[][] board) {
+    public static int[] getUserInput(Scanner keyboard, boolean playerOne, String[][] board) {
         
         // Holds user's desired coordinates, in array form for the purpose of returning 
         int[] userCoordinates = new int[2];
@@ -58,7 +60,7 @@ public class TicTacToe
       *
       * @return boolean Returns true if user input is valid with respect to game restrictions
      */
-    public static boolean checkInput(int x, int y, int[][] board) {
+    public static boolean checkInput(int x, int y, String[][] board) {
 
         // Automatically returns false if user coordinates are out of bounds
         if (x < 0 || x > 2 || y < 0 || y > 2 ) {
@@ -66,7 +68,7 @@ public class TicTacToe
         }
 
         // Returns false if position on board is already filled
-        if (board[x][y] == 0 || board[x][y] == 1) {
+        if (board[x][y] == "x" || board[x][y] == "o") {
             return false;
         }
 
