@@ -68,7 +68,7 @@ public class TicTacToe
       * @param keyboard     Scanner class object to parse user input
       * @param playerOne    boolean specifying player's turn (player 1 is true, player2 is false) 
       *
-      * @return Returns coordinates for spot on board user wishes to play
+      * @return int[]       Returns coordinates for spot on board user wishes to play
      */ 
     public static int[] getUserInput(Scanner keyboard) {
         
