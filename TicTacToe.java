@@ -24,7 +24,6 @@ public class TicTacToe
        -------------
        | O | O | X |
        -------------
-
      */
     public static void printBoard()
     {
@@ -123,5 +122,28 @@ public class TicTacToe
         }
 
         return true;
+    }
+
+
+    //Check the win condition line by line
+    public static boolean checkWinCondition(String[][] gameBoard){
+        //Check Rows
+        if((gameBoard[0][0].equals(gameBoard[0][1]) && gameBoard[0][0].equals(gameBoard[0][2]) && (!gameBoard[0][0].equals(" "))||
+            (gameBoard[1][0].equals(gameBoard[1][1]) &&  gameBoard[1][0].equals(gameBoard[1][2]) && (!gameBoard[0][0].equals(" "))) ||
+            (gameBoard[2][0].equals(gameBoard[2][1]) &&  gameBoard[2][0].equals(gameBoard[2][2]) && (!gameBoard[0][0].equals(" "))))){
+                return true;
+        } //Check Columns
+        else if ((gameBoard[0][0].equals(gameBoard[1][0]) && gameBoard[0][0].equals(gameBoard[2][0]) && (!gameBoard[0][0].equals(" "))) ||
+            (gameBoard[0][1].equals(gameBoard[1][1]) && gameBoard[0][1].equals(gameBoard[2][1]) && (!gameBoard[0][0].equals(" "))) ||
+            (gameBoard[0][2].equals(gameBoard[1][2]) && gameBoard[0][2].equals(gameBoard[2][2]) && (!gameBoard[0][0].equals(" ")))){
+                return true;
+            } //Check Diagonals
+        else if ((gameBoard[0][0].equals(gameBoard[1][1]) && gameBoard[0][0].equals(gameBoard[2][2]) && (!gameBoard[0][0].equals(" "))) ||
+                (gameBoard[0][2] == gameBoard[1][1] && gameBoard[0][2] == gameBoard[2][0]) && (!gameBoard[0][0].equals(" "))){
+                    return true;
+                }
+        else {
+            return false;
+        }
     }
 }
