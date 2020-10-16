@@ -70,7 +70,7 @@ public class TicTacToe
       *
       * @return Returns coordinates for spot on board user wishes to play
      */ 
-    public static int[] getUserInput(Scanner keyboard, boolean playerOne) {
+    public static int[] getUserInput(Scanner keyboard) {
         
         // Holds user's desired coordinates, in array form for the purpose of returning 
         int[] userCoordinates = new int[2];
