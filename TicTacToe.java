@@ -8,6 +8,58 @@ import java.util.Scanner;
 
 public class TicTacToe
 {
+    public static String[][] gameBoard = {{" "," "," "},{" "," "," "}, {" "," "," "}};
+    
+    // Test board
+    //public static String[][] gameBoard = {{"x","o","o"}, {"x","o","x"}, {"o","x","o"}};
+    private static boolean playerOne = true;
+
+    /**
+     * Displays the board to the user in the console
+     * Example looks like this:
+       -------------
+       | X | O | X |
+       -------------
+       | X | O | O |
+       -------------
+       | O | O | X |
+       -------------
+
+     */
+    public static void printBoard()
+    {
+        System.out.println("-------------");
+        for (int row = 0; row < gameBoard.length; row++)
+        {
+            System.out.printf("|");
+            for(int col = 0; col < gameBoard[row].length; col++)
+            {
+                System.out.printf(" %S ", gameBoard[row][col]);
+                System.out.printf("|");
+            }
+            System.out.println("\n-------------");
+        }
+    }
+
+    /**
+     * Updates the game board depending on player input
+     * 
+     * @param input       Integer array of user input specifying the row and column
+     * @param playerTurn  Specifies whether it is player1 or player2, x or o
+     */
+    public static void updateBoard(int[] input)
+    {
+        if (playerOne)
+        {
+            gameBoard[input[0]][input[1]] = "x";
+           
+        }
+        else
+        {
+            gameBoard[input[0]][input[1]] = "o";
+        }
+        playerOne = !playerOne;
+    }
 
     /**
       * Function to receive user input
@@ -15,11 +67,10 @@ public class TicTacToe
       *
       * @param keyboard     Scanner class object to parse user input
       * @param playerOne    boolean specifying player's turn (player 1 is true, player2 is false) 
-      * @param board        tic-tac-toe board representing game
       *
       * @return Returns coordinates for spot on board user wishes to play
      */ 
-    public static int[] getUserInput(Scanner keyboard, boolean playerOne, String[][] board) {
+    public static int[] getUserInput(Scanner keyboard, boolean playerOne) {
         
         // Holds user's desired coordinates, in array form for the purpose of returning 
         int[] userCoordinates = new int[2];
@@ -39,7 +90,7 @@ public class TicTacToe
             System.out.println("Enter a column (0, 1, or 2) for " + playerStr + ":");
             userCoordinates[1] = keyboard.nextInt();
 
-            validInput = checkInput(userCoordinates[0], userCoordinates[1], board);
+            validInput = checkInput(userCoordinates[0], userCoordinates[1]);
 
             if (!validInput) {
                 System.out.println("Invalid input. Please try again.\n");
@@ -56,11 +107,10 @@ public class TicTacToe
       * 
       * @param x        the x position user entered
       * @param y        the y position user entered
-      * @param board    tic-tac-toe board representing game
       *
       * @return boolean Returns true if user input is valid with respect to game restrictions
      */
-    public static boolean checkInput(int x, int y, String[][] board) {
+    public static boolean checkInput(int x, int y) {
 
         // Automatically returns false if user coordinates are out of bounds
         if (x < 0 || x > 2 || y < 0 || y > 2 ) {
@@ -68,12 +118,10 @@ public class TicTacToe
         }
 
         // Returns false if position on board is already filled
-        if (board[x][y] == "x" || board[x][y] == "o") {
+        if (gameBoard[x][y] == "x" || gameBoard[x][y] == "o") {
             return false;
         }
 
         return true;
     }
-
-
 }
