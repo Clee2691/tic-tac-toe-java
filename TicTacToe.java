@@ -44,7 +44,6 @@ public class TicTacToe
      * Updates the game board depending on player input
      * 
      * @param input       Integer array of user input specifying the row and column
-     * @param playerTurn  Specifies whether it is player1 or player2, x or o
      */
     public static void updateBoard(int[] input)
     {
@@ -65,7 +64,6 @@ public class TicTacToe
       * Calls checkInput function
       *
       * @param keyboard     Scanner class object to parse user input
-      * @param playerOne    boolean specifying player's turn (player 1 is true, player2 is false) 
       *
       * @return int[]       Returns coordinates for spot on board user wishes to play
      */ 
