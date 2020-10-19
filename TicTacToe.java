@@ -132,6 +132,19 @@ public class TicTacToe {
         }
     }
 
+    public static boolean boardIsFull() {
+        boolean isFull = true;
+
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                if (gameBoard[row][col] != "x" || gameBoard[row][col] != "o" ) {
+                    isFull = false;
+                }
+            }
+        }
+        return isFull;
+    }
+
     /**
      * Creates and displays tic tac toe game for person 1 and person 2 to play.
      *
