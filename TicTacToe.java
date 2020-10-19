@@ -107,7 +107,7 @@ public class TicTacToe {
      * Tests for win conditions - a row, a column, or a diagonal.
      *
      * @param gameBoard the String array that represents game board
-     * @return boolean returns true if a winning condition is found
+     * @return boolean returns true if a winning condition is found (row, column, or diagonal)
      */
     //Check the win condition line by line
     public static boolean checkWinCondition(String[][] gameBoard) {
@@ -132,17 +132,21 @@ public class TicTacToe {
         }
     }
 
+    /**
+     * Tests for win conditions - a row, a column, or a diagonal.
+     *
+     * @param boardIsFull boolean value to determine if the board is full.
+     * @return boolean returns true if the board is full.
+     */
     public static boolean boardIsFull() {
-        boolean isFull = true;
-
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
-                if (gameBoard[row][col] != "x" || gameBoard[row][col] != "o" ) {
-                    isFull = false;
+                if (gameBoard[row][col].equals(" ")){
+                    return false;
                 }
             }
         }
-        return isFull;
+        return true;
     }
 
     /**
@@ -155,16 +159,22 @@ public class TicTacToe {
         Scanner keyboard = new Scanner(System.in);
         int[] userInput = new int[2];
 
-        do {
+        do { 
             userInput = getUserInput(keyboard);
             updateBoard(userInput);
             printBoard();
-        } while (!checkWinCondition(gameBoard));
+        } while (!checkWinCondition(gameBoard) && !boardIsFull());
 
-        if (!playerOne) {
-            System.out.println("Player 1 won!");
-        } else {
-            System.out.println("Player 2 won!");
+        if (boardIsFull() && !checkWinCondition(gameBoard)){
+            System.out.println("It's a Draw.");
         }
+        else {
+            if (!playerOne) {
+                System.out.println("Player 1 won!");
+            } else {
+                System.out.println("Player 2 won!");
+            } 
+        }
+        keyboard.close();
     }
 }
