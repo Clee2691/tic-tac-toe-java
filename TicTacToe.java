@@ -133,9 +133,8 @@ public class TicTacToe {
     }
 
     /**
-     * Tests for win conditions - a row, a column, or a diagonal.
+     * Tests to see if the board is filled and no more moves are available.
      *
-     * @param boardIsFull boolean value to determine if the board is full.
      * @return boolean returns true if the board is full.
      */
     public static boolean boardIsFull() {
