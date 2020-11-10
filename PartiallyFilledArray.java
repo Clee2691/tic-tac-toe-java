@@ -152,12 +152,15 @@ public class PartiallyFilledArray
 
     public static void main(String[] args) {
         PartiallyFilledArray ar = new PartiallyFilledArray(2);
-        System.out.println(ar.getMaxCapacity());
+        System.out.println("Initial max capacity is: " + ar.getMaxCapacity());
         ar.add(1);
         ar.add(2);
         ar.add(3);
+        System.out.println("Array capacity after adding a third element is: " + ar.getMaxCapacity());
         ar.add(4);
-        System.out.println(ar.getElement(3));
+        ar.add(5);
+        System.out.println("Array capacity after adding a fourth and fifth element is: " + ar.getMaxCapacity());
+
     }
 }
 
