@@ -1,3 +1,4 @@
+//Textbook provides this code
 /**
  * Class for a simple sale of one item with no tax, discount, or other adjustments.
  * Class invariant: The price is always nonnegative; the name is a nonempty string.
