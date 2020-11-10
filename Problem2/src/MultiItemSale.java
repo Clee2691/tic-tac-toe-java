@@ -30,14 +30,3 @@ public class MultiItemSale {
         return "Total bill= $" + df.format(totalBill());
     }
 }
-
-
-//    public Sale getSale(int index) {
-//        Scanner keyboard = new Scanner(System.in);
-//        while(index<0 || index>amountOfArrayUsed){
-//            System.out.print("Invalid sale item! Enter another sale item # you would like: ");
-//            index = keyboard.nextInt();
-//        }
-//
-//        return sale[index];
-//    }
