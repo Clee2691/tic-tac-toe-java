@@ -1,0 +1,40 @@
+Matching Game Documentation
+
+This problem asks us to create a matching game that a user can interact with. Essentially, this game prompts the user to continually attempt to match “cards” on a 4x4 grid until all 16 cards have been turned face up. A turn consists of selecting two cards. If the value of card 1 equals the value of card 2, the cards remain face up. As far as I am aware, there is no condition by which the player can lose the game – it simply goes on until the board is completed.
+
+The solution presented here involves the use of 2 arrays:
+a.	A 4x4 array that stores that actual values of the cards
+b.	A 5x5 array that includes coordinates and a 4x4 “sub-array” of asterisks.
+
+The functions for the class are as follows:
+
+DisplayBoard
+Display board iterates over a 2d array and displays each value in the array.
+
+UpdateBoard
+Update board replaces the asterisks of our display board with the value at the corresponding location in the values array.
+
+FlipOver
+FlipOver converts the value in the display array back to an asterisk.
+
+CheckWon
+CheckWon iterates over the display array to see if any asterisks remain. If they do not, then the user has won.
+
+isValid
+Check the users input to see if it is Valid. If the value is above 4, it caps the value at 4. If the value is below 1, then it bottoms it out at 1. This is an efficient way to handle errors as there is no harm if a user’s turn is simply invalidated, as the user has an infinite amount of turns.
+
+Main
+The main method operates as follows:
+1.	Declare an array of card values
+2.	Shuffle that array
+3.	Divide that array into 4 arrays of 4 (These are our “rows”).
+4.	Create the “Actual Board” from our rows
+5.	Create the “Display Board”
+6.	Populate the Display Board.
+7.	Populate the coordinate borders of the display board.
+8.	Run the game logic
+a.	Prompt the user for x1, y1 – update the board, then do the same for x2, y2
+b.	Check to make sure the user didn’t enter the same location twice. If so, flip the card back over.
+c.	If match, keep the cards face up, otherwise flip them back over.
+9.	Evaluate to see whether or not the user has won.
+a.	If not, repeat from Step 8.

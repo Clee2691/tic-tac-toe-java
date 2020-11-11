@@ -61,7 +61,7 @@ public class MatchingGame {
         System.out.println("Please enter a number 1 through 4.");
         value = scan.nextInt();
         if(value > 4){
-            System.out.println("Enter a value greater than 4. Top Cieling is 4.");
+            System.out.println("Enter a value less than 4. Top Cieling is 4.");
             value = 4;
         } else if(value < 1){
             System.out.println("Entered a value less than 1. Bottom Floor is 1.");
@@ -150,8 +150,12 @@ public class MatchingGame {
                 currentBoardState[y2][x2] = "*";
             }
             //If the values match, lock them in place
+
             
             winCon = checkWon(currentBoardState);
+            if(winCon){
+                System.out.println("You Won!");
+            }
                 
         }
 
